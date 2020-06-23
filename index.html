@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+        <script type="module" src="./model.js"></script>
+        <style>
+            #answer{
+                font-size: 20em;
+                color: white;
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+        <div id = "answer" textsize="40">
+            C
+        </div>
+        <div class="camera">
+            <video id="video" autoplay playsinline>Video stream not available.</video>
+        </div>
+        <canvas id="canvas" hidden>
+
+        </canvas>
+    </body>
+</html>
