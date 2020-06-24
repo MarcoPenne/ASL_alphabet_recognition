@@ -5,6 +5,7 @@ async function init(){
 
     model = await tf.loadGraphModel('graph_model/model.json');
 
+    document.getElementById("loading").hidden = true;
     // JavaScript
 
     var video = document.getElementById("video");
@@ -53,7 +54,6 @@ setInterval(function(){
     .drawImage(video, 0, 0, canvas.width, canvas.height);
     // convert it to a usable data URL
     const dataURL = canvas.toDataURL();
-    //console.log(dataURL)
 
     
     var img = new Image;
@@ -68,12 +68,9 @@ setInterval(function(){
         t = t.expandDims()
         const b = tf.scalar(255);
         t = t.div(b);
-        //console.log(t)
         let pred = model.predict(t)
-        //console.log(pred)
         let index = pred.argMax(1)
         const tensorData = index.dataSync();
-        //console.log(tensorData)
         let classnames = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'del', 'nothing', 'space']
         let answer = classnames[tensorData[0]] 
         let div = document.getElementById("answer");
