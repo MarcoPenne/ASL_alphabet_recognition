@@ -3,7 +3,7 @@
 let model;
 async function init(){
 
-    model = await tf.loadGraphModel('graph_model/model.json');
+    model = await tf.loadGraphModel('graph_VGG19_finetuned/model.json');
 
     document.getElementById("loading").hidden = true;
     // JavaScript
